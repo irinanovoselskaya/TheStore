@@ -1,16 +1,17 @@
 # TheStore
 MEAN stack
 
+### To start the project
 
 `mongod`
 
-server
+#### server
 
 `npm i`
 
 `npm run dev`
 
-client
+#### client
 
 `npm i`
 
