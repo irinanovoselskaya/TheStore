@@ -7,10 +7,10 @@ import Item from '../models/Item';
 export const getItems = async function() {
     try {
 
-        return await Item();
+        return await Item.find();
     } catch(e) {
 
-        throw Error('Error occured while getting the items');
+        throw 'Error occurred while getting the item';
     }
 };
 
@@ -30,21 +30,6 @@ export const createItem = async function(item) {
         return await newItem.save();
     } catch(e) {
 
-        throw Error("Error occured while creating an item");
-    }
-};
-
-/**
- *
- * @param id {string}
- * @returns {Promise<*>}
- */
-export const removeItem = async function(id) {
-    try {
-
-        return await Item.delete({_id: id});
-    } catch(e) {
-
-        throw Error("Error occured while deleting the item")
+        throw e.message || 'Error occurred while creating the item';
     }
 };

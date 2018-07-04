@@ -1,0 +1,1 @@
+export const DB_ITEM = 'localhost:27017/item';

@@ -7,6 +7,4 @@ router.get('/', controller.getItems);
 
 router.post('/', controller.createItem);
 
-router.delete('/:id',controller.removeItem);
-
 export default router;
