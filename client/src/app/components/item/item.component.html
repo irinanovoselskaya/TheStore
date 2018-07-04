@@ -1,0 +1,61 @@
+<mat-list class="item-list" role="list" *ngIf="itemList.length">
+  <mat-list-item role="listitem" *ngFor="let item of itemList">
+    {{item.color}}&nbsp;-&nbsp;{{item.number}}
+  </mat-list-item>
+</mat-list>
+
+<mat-divider class="divider" *ngIf="itemList.length"></mat-divider>
+
+<form class="item-form"
+      [formGroup]="itemForm"
+      #formDirective="ngForm"
+      (ngSubmit)="createItem(itemForm, formDirective)"
+>
+  <mat-form-field class="item-form__field">
+    <input matInput
+           type="text"
+           class="form-control"
+           placeholder="Color"
+           formControlName="color"
+           name="color"
+    >
+    <mat-hint>
+      Only letters are allowed
+    </mat-hint>
+    <mat-error *ngIf="color.hasError('required')">
+      {{getErrorMessageColor()}}
+    </mat-error>
+    <mat-error *ngIf="color.hasError('pattern')">
+      {{getErrorMessageColor()}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="item-form__field">
+    <input matInput
+           type="number"
+           class="form-control"
+           placeholder="Number"
+           name="number"
+           formControlName="number"
+    >
+    <mat-hint>
+      Only numbers are allowed
+    </mat-hint>
+    <mat-error *ngIf="number.hasError('required')">
+      {{getErrorMessageNumber()}}
+    </mat-error>
+    <mat-error *ngIf="number.hasError('pattern')">
+      {{getErrorMessageNumber()}}
+    </mat-error>
+  </mat-form-field>
+
+  <p class="item-form__submit-wrapper">
+    <button mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="itemForm.invalid"
+    >
+      Create Item
+    </button>
+  </p>
+</form>

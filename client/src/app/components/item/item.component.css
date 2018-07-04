@@ -1,0 +1,20 @@
+.item-list {
+  display: block;
+}
+
+.item-form {
+  display: block;
+  padding: 0 16px;
+}
+
+.item-form__field {
+  display: block;
+}
+
+.item-form__submit-wrapper {
+  margin: 16px 0;
+}
+
+.divider {
+  margin: 16px 0 8px;
+}
