@@ -14,4 +14,4 @@ client
 
 `npm i`
 
-`ng serve open`
+`ng serve --open`
